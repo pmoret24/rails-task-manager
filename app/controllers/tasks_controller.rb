@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
 
   def index
-    @lists = Task.all
+    @tasks = Task.all
   end
 
   def show
-    @details = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -29,6 +29,15 @@ class TasksController < ApplicationController
     # No need for app/views/restaurants/update.html.erb
     redirect_to tasks_path
   end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to tasks_path, status: :see_other
+  end
+
+  private
 
   def task_params
     params.require(:task).permit(:title, :details, :completed)

@@ -1,7 +1,7 @@
 <h1>List</h1>
 <ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.title, task_path(list) %></li>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.title, task_path(task) %></li>
   <% end %>
 </ul>
 
