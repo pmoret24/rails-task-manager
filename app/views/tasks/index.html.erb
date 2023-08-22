@@ -1,6 +1,6 @@
 <h1>List</h1>
 <ul>
   <% @lists.each do |list| %>
-    <li><%= list.title %></li>
+    <li><%= link_to list.title, task_path(list) %></li>
   <% end %>
 </ul>
